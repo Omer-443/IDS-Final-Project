@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 st.set_page_config(
     page_title="Smoking Behavior Analysis",
@@ -23,3 +26,29 @@ def load_data():
     return data
 
 data = load_data()
+st.sidebar.title("Navigation")
+pages = [
+    "Overview",
+    
+]
+selected_page = st.sidebar.radio("Select a Page", pages)
+if selected_page == "Overview":
+    st.title("\U0001F6AD Smoking Dataset Overview")
+    total_records = len(data)
+    smokers = len(data[data['smoke'] == "Yes"])
+    non_smokers = len(data[data['smoke'] == "No"])
+    avg_age = round(data['age'].mean(), 1)
+
+    # Display metrics
+    st.metric("Total Records", total_records)
+    st.metric("Smokers", smokers)
+    st.metric("Non-Smokers", non_smokers)
+    st.metric("Average Age", f"{avg_age} years")
+
+    fig = px.pie(
+        names=["Smokers", "Non-Smokers"],
+        values=[smokers, non_smokers],
+        title="Smoking Proportion in Dataset",
+        color_discrete_sequence=px.colors.sequential.RdBu,
+    )
+    st.plotly_chart(fig)
