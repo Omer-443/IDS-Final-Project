@@ -1,10 +1,17 @@
-# INTRODUCTUON TO DATA SCIENCE 
-## SEMESTER PROJECT
-## TITLE : ANALYSIS ON SMOKING (DATASET FROM UK)
-First of all setted page configuration using streamlit and then loaded data using pandas 
-data is cleaned, sidebar is made using streamlit. Added overview page showing,
-*Total Records 
-*Smokers 
-*NON Smokers 
-*Average Age 
-*Proportion of smokers and non-smokers (pie chart) 
+# Introduction to Data Science  
+## Semester Project  
+## Title: Analysis on Smoking (Dataset from UK)
+
+The project aims to analyze smoking habits using a dataset from the UK. Key features of the project include:
+
+- **Page Configuration:** Set up using Streamlit.
+- **Data Loading:** Data is loaded using Pandas.
+- **Data Cleaning:** Initial cleaning and preparation of the dataset.
+- **Sidebar:** Created using Streamlit to navigate through different sections.
+  
+### Overview Page:
+- **Total Records:** Displays the total number of records in the dataset.
+- **Smokers:** Displays the count of smokers.
+- **Non-Smokers:** Displays the count of non-smokers.
+- **Average Age:** Displays the average age of the individuals in the dataset.
+- **Proportion of Smokers and Non-Smokers:** A pie chart visualizing the proportion of smokers vs. non-smokers.
