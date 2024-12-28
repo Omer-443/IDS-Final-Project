@@ -15,3 +15,9 @@ The project aims to analyze smoking habits using a dataset from the UK. Key feat
 - **Non-Smokers:** Displays the count of non-smokers.
 - **Average Age:** Displays the average age of the individuals in the dataset.
 - **Proportion of Smokers and Non-Smokers:** A pie chart visualizing the proportion of smokers vs. non-smokers.
+- 
+### Smoking by Gender:
+Analyzes the trend of smoker and non smoker on bases of gender. 
+
+### Smoking by Gender:
+Trend of smoking with respect to age distribution
