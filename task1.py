@@ -29,6 +29,8 @@ data = load_data()
 st.sidebar.title("Navigation")
 pages = [
     "Overview",
+    "Smoking by Gender",
+    "Age Distribution",
     
 ]
 selected_page = st.sidebar.radio("Select a Page", pages)
@@ -39,7 +41,6 @@ if selected_page == "Overview":
     non_smokers = len(data[data['smoke'] == "No"])
     avg_age = round(data['age'].mean(), 1)
 
-    # Display metrics
     st.metric("Total Records", total_records)
     st.metric("Smokers", smokers)
     st.metric("Non-Smokers", non_smokers)
@@ -52,3 +53,24 @@ if selected_page == "Overview":
         color_discrete_sequence=px.colors.sequential.RdBu,
     )
     st.plotly_chart(fig)
+
+elif selected_page == "Smoking by Gender":
+    st.title("Smoking Behavior by Gender")
+    gender_smoking = data.groupby(['gender', 'smoke']).size().reset_index(name='count')
+    fig = px.bar(
+        gender_smoking,
+        x="gender",
+        y="count",
+        color="smoke",
+        title="Smoking by Gender",
+        barmode="group",
+        color_discrete_map={"Yes": "red", "No": "green"},
+    )
+    st.plotly_chart(fig)
+
+elif selected_page == "Age Distribution":
+    st.title("Age Distribution")
+    fig, ax = plt.subplots(figsize=(10, 5))
+    sns.histplot(data, x="age", hue="smoke", kde=True, bins=20, ax=ax)
+    ax.set_title("Age Distribution of Smokers and Non-Smokers")
+    st.pyplot(fig)
