@@ -19,5 +19,17 @@ The project aims to analyze smoking habits using a dataset from the UK. Key feat
 ### Smoking by Gender:
 Analyzes the trend of smoker and non smoker on bases of gender. 
 
-### Smoking by Gender:
+### Smoking by Age:
 Trend of smoking with respect to age distribution
+
+### Smoking by Income:
+Trend of smoking on basis of different Income groups
+
+### Smoking by Income:
+Trend of smoking on basis of different Income groups
+
+### Smoking by Smoking Type:
+Trend of smokers with respect to smoking type.
+
+### Weekdays and week-end smoking:
+Trend difference between weekdays and weekends.
