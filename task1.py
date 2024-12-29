@@ -74,3 +74,39 @@ elif selected_page == "Age Distribution":
     sns.histplot(data, x="age", hue="smoke", kde=True, bins=20, ax=ax)
     ax.set_title("Age Distribution of Smokers and Non-Smokers")
     st.pyplot(fig)
+
+elif selected_page == "Income Analysis":
+    st.title("Income vs Smoking Behavior")
+    income_smoking = data.groupby(['gross_income', 'smoke']).size().reset_index(name='count')
+    fig = px.bar(
+        income_smoking,
+        x="gross_income",
+        y="count",
+        color="smoke",
+        title="Smoking by Income Bracket",
+        barmode="group",
+        color_discrete_map={"Yes": "red", "No": "green"},
+    )
+    st.plotly_chart(fig)
+
+elif selected_page == "Smoking Type Distribution":
+    st.title("Smoking Type Distribution")
+    fig = px.pie(
+        data,
+        names="type",
+        title="Distribution of Smoking Types",
+        color_discrete_sequence=px.colors.sequential.RdBu,
+    )
+    st.plotly_chart(fig)
+
+elif selected_page == "Weekday vs Weekend Smoking":
+    st.title("Weekday vs Weekend Smoking")
+    fig = px.scatter(
+        data,
+        x="amt_weekdays",
+        y="amt_weekends",
+        color="smoke",
+        title="Weekday vs Weekend Smoking",
+        labels={"amt_weekdays": "Weekday Smoking", "amt_weekends": "Weekend Smoking"},
+    )
+    st.plotly_chart(fig)
