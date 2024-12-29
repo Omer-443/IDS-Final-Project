@@ -25,9 +25,6 @@ Trend of smoking with respect to age distribution
 ### Smoking by Income:
 Trend of smoking on basis of different Income groups
 
-### Smoking by Income:
-Trend of smoking on basis of different Income groups
-
 ### Smoking by Smoking Type:
 Trend of smokers with respect to smoking type.
 
