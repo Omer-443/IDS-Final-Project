@@ -31,7 +31,11 @@ pages = [
     "Overview",
     "Smoking by Gender",
     "Age Distribution",
-    
+    "Income Analysis",
+    "Smoking Type Distribution",
+    "Weekday vs Weekend Smoking",
+    "Regional Smoking Patterns",
+    "Correlation Analysis",
 ]
 selected_page = st.sidebar.radio("Select a Page", pages)
 if selected_page == "Overview":
@@ -110,3 +114,22 @@ elif selected_page == "Weekday vs Weekend Smoking":
         labels={"amt_weekdays": "Weekday Smoking", "amt_weekends": "Weekend Smoking"},
     )
     st.plotly_chart(fig)
+
+elif selected_page == "Regional Smoking Patterns":
+    st.title("Smoking Patterns by Region")
+    region_smoking = data.groupby("region")['smoke'].value_counts(normalize=True).unstack()
+    fig = px.bar(
+        region_smoking,
+        barmode="stack",
+        title="Smoking Patterns Across Regions",
+        labels={"value": "Proportion"},
+    )
+    st.plotly_chart(fig)
+
+elif selected_page == "Correlation Analysis":
+    st.title("Correlation Between Features")
+    numeric_data = data.select_dtypes(include=['float64', 'int64'])  # Include only numeric columns
+    correlation_matrix = numeric_data.corr()  # Calculate correlation
+    fig, ax = plt.subplots(figsize=(10, 8))
+    sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", ax=ax)
+    st.pyplot(fig)    
