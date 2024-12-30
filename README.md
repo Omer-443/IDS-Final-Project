@@ -30,3 +30,11 @@ Trend of smokers with respect to smoking type.
 
 ### Weekdays and week-end smoking:
 Trend difference between weekdays and weekends.
+
+### Regional Smoking:
+Trend across different regions.
+
+### Correlation Analysis:
+Correlation analysis between all numeric features using heatmap.
+
+
