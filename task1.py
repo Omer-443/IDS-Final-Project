@@ -36,7 +36,11 @@ pages = [
     "Weekday vs Weekend Smoking",
     "Regional Smoking Patterns",
     "Correlation Analysis",
+    "Smoking by Education",
+    "Smoking Frequency Comparison",
+    "Smoking by Ethnicity",
 ]
+
 selected_page = st.sidebar.radio("Select a Page", pages)
 if selected_page == "Overview":
     st.title("\U0001F6AD Smoking Dataset Overview")
@@ -133,3 +137,51 @@ elif selected_page == "Correlation Analysis":
     fig, ax = plt.subplots(figsize=(10, 8))
     sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", ax=ax)
     st.pyplot(fig)    
+
+elif selected_page == "Smoking by Education":
+    st.title("Smoking by Education Level")
+    education_smoking = data.groupby(['highest_qualification', 'smoke']).size().reset_index(name='count')
+    fig = px.bar(
+        education_smoking,
+        x="highest_qualification",
+        y="count",
+        color="smoke",
+        title="Smoking by Education Level",
+        barmode="group",
+    )
+    st.plotly_chart(fig)
+
+elif selected_page == "Smoking Frequency Comparison":
+    st.title("Smoking Frequency: Weekdays vs Weekends")
+    avg_weekdays = data['amt_weekdays'].mean()
+    avg_weekends = data['amt_weekends'].mean()
+    col1, col2 = st.columns(2)
+    col1.metric("Average Weekday Smoking", f"{avg_weekdays:.1f} cigarettes")
+    col2.metric("Average Weekend Smoking", f"{avg_weekends:.1f} cigarettes")
+
+    avg_data = pd.DataFrame({
+        "Day Type": ["Weekdays", "Weekends"],
+        "Average Cigarettes": [avg_weekdays, avg_weekends]
+    })
+    fig = px.bar(
+        avg_data,
+        x="Day Type",
+        y="Average Cigarettes",
+        title="Comparison of Smoking Frequency",
+        color="Day Type",
+        color_discrete_sequence=px.colors.sequential.RdBu
+    )
+    st.plotly_chart(fig)
+
+elif selected_page == "Smoking by Ethnicity":
+    st.title("Smoking Trends by Ethnicity")
+    ethnicity_smoking = data.groupby(['ethnicity', 'smoke']).size().reset_index(name='count')
+    fig = px.bar(
+        ethnicity_smoking,
+        x="ethnicity",
+        y="count",
+        color="smoke",
+        title="Smoking by Ethnicity",
+        barmode="group",
+    )
+    st.plotly_chart(fig)    
