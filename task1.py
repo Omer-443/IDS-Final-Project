@@ -185,3 +185,33 @@ elif selected_page == "Smoking by Ethnicity":
         barmode="group",
     )
     st.plotly_chart(fig)    
+
+elif selected_page == "Smoking by Marital Status":
+    st.title("Smoking Trends by Marital Status")
+    marital_smoking = data.groupby(['marital_status', 'smoke']).size().reset_index(name='count')
+    fig = px.bar(
+        marital_smoking,
+        x="marital_status",
+        y="count",
+        color="smoke",
+        title="Smoking by Marital Status",
+        barmode="group",
+    )
+    st.plotly_chart(fig)
+
+elif selected_page == "Age Group Trends":
+    st.title("Smoking Trends by Age Groups")
+    data['age_group'] = pd.cut(data['age'], bins=[0, 18, 30, 50, 70, 100], labels=["<18", "18-30", "30-50", "50-70", "70+"])
+    age_group_smoking = data.groupby(['age_group', 'smoke']).size().reset_index(name='count')
+    fig = px.bar(
+    age_group_smoking,
+    x="age_group",
+    y="count",
+    color="smoke",
+    title="Smoking Trends by Age Groups",
+    barmode="group",
+    color_discrete_map={"Yes": "red", "No": "green"},
+)
+    st.plotly_chart(fig)
+
+ 
