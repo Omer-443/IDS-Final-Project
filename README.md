@@ -92,6 +92,17 @@ This project focuses on analyzing smoking habits using a dataset from the UK. Th
 
 ---
 
+### **Trend by martial Status**  
+- Highlights smoking behavior trends across martial status.  
+- Grouped bar chart is used to compare smoking habits within ethnicities.  
+
+---
+
+### **Smoking in different Age Groups**  
+- Highlights smoking behavior trends across different Age groups.  
+- Grouped bar chart is used to compare smoking habits within ethnicities.  
+
+---
 ## **Technologies Used**  
 - **Python:** Programming language for data processing and analysis.  
 - **Streamlit:** Framework for building the interactive web application.  
