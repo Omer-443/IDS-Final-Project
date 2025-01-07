@@ -3,7 +3,7 @@
 ## Semester Project  
 ### **Introduction to Data Science**  
 
-This project focuses on analyzing smoking habits using a dataset from the UK. The analysis provides insights into smoking behavior based on various factors, including gender, age, income, region, and more. The interactive dashboard is built using **Streamlit**, and it employs data cleaning and visualization techniques for meaningful insights.  
+This project focuses on analyzing smoking habits using a dataset from the UK. The analysis provides insights into smoking behavior based on various factors, including gender, age, income, region, and more. The interactive dashboard is built using **Streamlit**, and it employs advanced data cleaning, machine learning, and visualization techniques for meaningful insights.  
 
 ---
 
@@ -14,7 +14,11 @@ This project focuses on analyzing smoking habits using a dataset from the UK. Th
 
 ### **Data Loading and Cleaning:**  
 - **Data Loading:** The dataset is loaded using Pandas.  
-- **Data Cleaning:** Missing values are handled, and the dataset is enriched with imputed values (median/mode) for smoking-related columns.  
+- **Data Cleaning:** Missing values are handled and imputed using median/mode for smoking-related columns, enhancing data quality for analysis.  
+
+### **Machine Learning Integration:**  
+- A **Random Forest Classifier** is used to predict smoking type based on user inputs.  
+- Supports interactive predictions through the dashboard's "Prediction" page.  
 
 ### **Sidebar Navigation:**  
 - A dynamic sidebar allows seamless navigation across different sections of the analysis.  
@@ -23,97 +27,61 @@ This project focuses on analyzing smoking habits using a dataset from the UK. Th
 
 ## **Pages Overview**  
 
-### **Overview Page**  
+### **Overview & Demographics**  
 - **Total Records:** Displays the total number of records in the dataset.  
-- **Smokers:** Number of individuals who smoke.  
-- **Non-Smokers:** Number of individuals who don't smoke.  
-- **Average Age:** Shows the average age of all individuals.  
-- **Proportion of Smokers and Non-Smokers:** Pie chart visualizing the proportion of smokers vs. non-smokers.  
+- **Smokers & Non-Smokers:** Summarizes smoking trends with metrics and percentages.  
+- **Gender-Based Smoking Trends:** Interactive bar chart showing smoking behavior by gender.  
+- **Average Age:** Calculates and displays the average age of individuals.  
 
 ---
 
-### **Smoking by Gender**  
-- Provides insights into smoking behavior categorized by gender.  
-- Includes a grouped bar chart to compare smoking habits between males and females.  
+### **Smoking Behavior**  
+- Explores smoking habits based on income, education, and smoking type:  
+  - **Income Analysis:** Grouped bar charts visualizing smoking trends by income bracket.  
+  - **Education Analysis:** Bar chart representation of smoking trends across educational qualifications.  
+  - **Smoking Type Distribution:** Pie chart showcasing the distribution of different smoking types.  
 
 ---
 
-### **Age Distribution**  
-- Explores how smoking behavior varies across different age groups.  
-- Visualized using a histogram with KDE (Kernel Density Estimation) overlay.  
+### **Trends & Correlations**  
+- **Age Distribution:** Histograms analyzing age-based smoking behavior.  
+- **Smoking Frequency:** Scatter plots comparing smoking on weekdays vs. weekends.  
+- **Correlation Analysis:** Heatmap to visualize relationships between numerical features.  
 
 ---
 
-### **Income Analysis**  
-- Examines the correlation between gross income and smoking habits.  
-- Displays smoking trends across various income brackets using a grouped bar chart.  
+### **Advanced Analysis**  
+- **Age Group Trends:** Highlights smoking behavior across categorized age groups.  
+- **Regional Patterns:** Stacked bar charts showcasing regional smoking trends.  
+- **Marital Status:** Explores smoking behavior trends by marital status.  
 
 ---
 
-### **Smoking Type Distribution**  
-- Analyzes the distribution of different smoking types (e.g., light, moderate, heavy).  
-- Presented as a pie chart for a clear understanding of proportions.  
+### **Income and Smoking Type**  
+- Examines the relationship between gross income and smoking type.  
+- Interactive bar chart shows the distribution of smoking types across income brackets.  
 
 ---
 
-### **Weekday vs Weekend Smoking**  
-- Compares smoking frequency on weekdays vs. weekends.  
-- Scatter plot showcasing relationships between weekday and weekend smoking habits.  
+### **Prediction**  
+- A dedicated page to predict smoking type based on user inputs, leveraging a pre-trained **Random Forest Classifier**:  
+  - Inputs include age, income, gender, region, and smoking frequency on weekdays/weekends.  
+  - Outputs the predicted smoking type.  
 
 ---
 
-### **Regional Smoking Patterns**  
-- Investigates smoking patterns across different UK regions.  
-- Visualized using a stacked bar chart to highlight proportions in each region.  
-
----
-
-### **Correlation Analysis**  
-- Examines correlations between numerical features in the dataset.  
-- Heatmap is used to display correlation coefficients and relationships visually.  
-
----
-
-### **Smoking by Education**  
-- Studies smoking habits based on educational qualifications.  
-- Bar chart representation of smoking trends across education levels.  
-
----
-
-### **Smoking Frequency Comparison**  
-- Compares average cigarette consumption on weekdays and weekends.  
-- Metrics and a bar chart illustrate the differences in smoking frequency.  
-
----
-
-### **Smoking by Ethnicity**  
-- Highlights smoking behavior trends across different ethnic groups.  
-- Grouped bar chart is used to compare smoking habits within ethnicities.  
-
----
-
-### **Trend by martial Status**  
-- Highlights smoking behavior trends across martial status.  
-- Grouped bar chart is used to compare smoking habits within ethnicities.  
-
----
-
-### **Smoking in different Age Groups**  
-- Highlights smoking behavior trends across different Age groups.  
-- Grouped bar chart is used to compare smoking habits within ethnicities.  
-
----
 ## **Technologies Used**  
 - **Python:** Programming language for data processing and analysis.  
 - **Streamlit:** Framework for building the interactive web application.  
 - **Pandas:** Data manipulation and cleaning.  
 - **Seaborn & Matplotlib:** For advanced visualizations and plots.  
 - **Plotly Express:** Interactive and dynamic data visualizations.  
+- **Scikit-learn:** Machine learning model implementation for predictions.  
 
 ---
 
-### **How to Run the Project**  
+## **How to Run the Project**  
 1. Clone the repository and ensure the dataset (`smoking.csv`) is in the `DataSet` folder.  
 2. Install the required Python libraries:  
    ```bash
-   pip install streamlit pandas plotly seaborn matplotlib
+   pip install streamlit pandas plotly seaborn matplotlib scikit-learn
